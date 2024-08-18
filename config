@@ -1,0 +1,54 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 12,
+    "spacing": 5,
+    "modules-left": ["sway/workspaces","sway/mode"],
+    "modules-center": [],
+    "modules-right": ["cpu","memory","battery","pulseaudio", "network" ],
+
+    "battery": {
+      "interval": 1,
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      // Connected to AC
+      "format": " {capacity}%", // Icon: bolt
+      "tooltip": false
+    },
+
+    "cpu": {
+        "interval": 5,
+        "tooltip": false,
+        "format": "\uf4bc  {usage}%", // Icon: microchip
+        "states": {
+          "warning": 70,
+          "critical": 90
+        }
+    },
+
+    "memory": {
+      "interval": 5,
+      "format": "\uf201  {}%", // Icon: memory
+      "states": {
+        "warning": 70,
+        "critical": 90
+      }
+    },
+
+    "network": {
+        "interface": "wlp0s20f3", // Replace with your Wi-Fi interface name
+        "format": "\uf1eb  {essid} {signalStrength}%",
+        "format-disconnected": "Disconnected",
+        "format-alt": "{ipaddr}",
+        "interval": 5
+    },
+
+    "pulseaudio": {
+      //"scroll-step": 1,
+      "format": "\ue638  {volume}%",
+      "format-bluetooth": "{icon} {volume}%",
+      "on-click": "pavucontrol"
+    },
+}
